@@ -43,3 +43,12 @@ spec:
             configMapKeyRef:
               name: ecom-backend-config
               key: session_timeout
+        volumeMounts:
+        - name: env-file
+          readOnly: true
+          mountPath: "/app/env"
+      volumes:
+        - name: env-file
+          secret:
+           secretName: dotfile-secret
+
